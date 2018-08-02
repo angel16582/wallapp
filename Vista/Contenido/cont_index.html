@@ -39,7 +39,7 @@
                         <br>
                         <div class="col-md-3">
                         <label class="control-label" for="status">Precio normal</label>
-                        <input type="text" id="precioU" value="" placeholder="Precio" class="form-control" >
+                        <input type="text" id="precio" value="" placeholder="Precio" class="form-control" >
                         <br></div>
                         <div class="col-md-3">
                         <label class="control-label" for="status">Precio de oferta</label>
@@ -100,3 +100,46 @@
 
       </div>
     </div>
+
+    <script>
+      function buscar_articulo(){
+     //$(document).ready(function(){
+      var cod=$("#codigo").val();
+      
+       $.ajax({
+            url: "busca_producto.php",
+           // dataType: 'json',
+            type: "POST",
+            dataType: 'json',
+            data: {codigo:cod},
+            success: function(data){
+             //if (true) {alert("producto no encotrado")}
+              $("#nombre").val(data.nombre);
+              $("#precio").val(data.precio);
+              //$("#descripcion").val(data.Descripcion);
+              // $("#IdPro").val(data.Id_Producto);
+              // if (data.Imagen!="") {
+              //  $("#imagen").attr('src','../Content/Productos/'+data.Imagen+'.jpg');
+              // }
+              // else{
+              //    $("#imagen").attr('src','../Content/Productos/nohay.jpg');
+              // }
+              // if (data.Categoria=="Frutas y Verduras" || data.Categoria=="A granel" ||data.Categoria=="Carnes") {
+
+              //     //alert("entre al if")
+                  
+              //    $("#ven").attr("disabled",false);
+              // }
+              // else{
+              //    agregar();
+              // }
+              
+            
+            }
+            
+            
+        });
+           
+         // })
+         }
+    </script>
