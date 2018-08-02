@@ -2,7 +2,7 @@
 require('conec.php');
  
 $codigo=$_POST['codigo'];
-$rs = mysqli_query($con,"SELECT * FROM productos where codigo=$codigo");
+$rs = mysqli_query($con,"SELECT * FROM productos where codigo='$codigo'");
     
                        $array=array();
                        
