@@ -29,7 +29,7 @@
                     <br />
                     <div class="col-md-6">
                       <div class="form-group">
-                        
+
                         <label class="control-label" for="order_id">Codigo del Producto</label>
                         <input type="text" id="codigo"  value="" placeholder="Codigo del producto" class="form-control" onchange='buscar_articulo();' autocomplete="off">
                         <input type="text" id="IdPro"  value="" class="form-control" style="display: none;">
@@ -37,22 +37,37 @@
                         <label class="control-label" for="order_id">Descripcion del producto</label>
                         <input type="text" id="nombre"  value=""  placeholder="Producto" autocomplete="off" class="form-control nombre" readonly="">
                         <br>
-
+                        <div class="col-md-3">
                         <label class="control-label" for="status">Precio normal</label>
-                        <input type="text" id="precioU" value="" placeholder="Precio" class="form-control" readonly="">
-                        <br>
-
+                        <input type="text" id="precioU" value="" placeholder="Precio" class="form-control" >
+                        <br></div>
+                        <div class="col-md-3">
                         <label class="control-label" for="status">Precio de oferta</label>
                         <input type="number" id="cantidad" value="" placeholder="Cantidad" class="form-control" required="required">
-                        <br>
+                        <br></div>
+                        <div class="col-md-3">
                         <label class="control-label" for="order_id">Gramaje</label>
                         <input type="number" id="cantidad" value="" placeholder="Cantidad" class="form-control" required="required">
-                        <br><label class="control-label" for="order_id">Cantidad</label>
-                        <input type="number" id="cantidad" value="" placeholder="Cantidad" class="form-control" required="required">
-                        <br><label class="control-label" for="order_id">Total por producto</label>
-                        <input type="number" id="cantidad" value="" placeholder="Cantidad" class="form-control" required="required">
                         
-                        
+                        <br></div>
+                        <div class="col-md-3"><label class="control-label" for="order_id">Cantidad</label>
+                        <input type="number" id="cantidad" value="" placeholder="Cantidad" class="form-control" required="required">
+
+                        <br></div>
+                        <div class="col-md-4">
+                        <label class="control-label" for="order_id">Total por producto</label>
+                        <input type="number" id="cantidad" value="" placeholder="Cantidad" class="form-control" required="required">
+
+                        <br></div>
+                        <div class="col-md-4">
+                        <label class="control-label" for="order_id">Subtotal</label>
+                        <input type="number" id="cantidad" value="" placeholder="Cantidad" class="form-control" required="required">
+                        <br></div>
+                        <div class="col-md-4">
+                        <label class="control-label" for="order_id">Total de articulos</label>
+                        <input type="number" id="cantidad" value="" placeholder="Cantidad" class="form-control" required="required">
+                        <br></div>
+
                       </div>
                     </div>
                     <div class="col-md-6">
@@ -62,17 +77,12 @@
                         <div class="form-control" style="max-width: 250px;min-width: 250px; max-height: 210px;min-height: 210px">
                           <center><img style="max-width: 150px;min-width: 150px; max-height: 200px;min-height: 200px" id="imagen"></center>
                         </div>
-                        
-                        <br><label class="control-label" for="order_id">Subtotal</label>
-                        <input type="number" id="cantidad" value="" placeholder="Cantidad" class="form-control" required="required">
-                        <br><label class="control-label" for="order_id">Total de articulos</label>
-                        <input type="number" id="cantidad" value="" placeholder="Cantidad" class="form-control" required="required">
                         <br>
                         <input type="submit"  value="Agregar" class="btn btn-dark" onclick="agregar()"  id="ven">
                       </div>
                     </div>        
-                    
-                    
+
+
                   </div>
                 </div>
 
@@ -85,7 +95,7 @@
           </div>
         </div>
 
-        
+
 
 
       </div>
