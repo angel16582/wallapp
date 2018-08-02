@@ -12,6 +12,7 @@ $rs = mysqli_query($con,"SELECT * FROM productos where codigo=$codigo");
                           $codigo =$row['codigo'];
                           $nombre=$row['nombre'];
                           $precio=$row['precio'];
+                          $gra=$row['gramaje'];
                           // $Des=$row['Descripcion'];
                           // $Cat=$row['Categoria'];
                           // $im=$row['Imagen'];
@@ -22,7 +23,7 @@ $rs = mysqli_query($con,"SELECT * FROM productos where codigo=$codigo");
                       
                        mysqli_close($con);
                     
-                    echo json_encode( array('nombre'=> $nombre,'precio'=> $precio));
+                    echo json_encode( array('nombre'=> $nombre,'precio'=> $precio,'gramaje'=> $gra));
                    
                   
 
