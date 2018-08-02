@@ -119,6 +119,12 @@
               $("#precioOferta").val(data.precio);
               
               $("#gramaje").val(data.gramaje);
+              if (data.codigo!="") {
+                $("#imagen").attr('src','../Content/Imagenes/'+data.codigo+'.jpg');
+               }
+               else{
+                  $("#imagen").attr('src','../Content/Imagenes/img.jpg');
+               }
               //$("#descripcion").val(data.Descripcion);
               // $("#IdPro").val(data.Id_Producto);
               // if (data.Imagen!="") {
