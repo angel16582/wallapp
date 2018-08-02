@@ -1,76 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" href="images/favicon.ico" type="image/ico" />
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="images/favicon.ico" type="image/ico" />
 
-    <title>Gentelella Alela! | </title>
+  <title>Wallapp | -</title>
+  
 
-    <!-- Bootstrap -->
-    <link href="../Content/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="../Content/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="../Content/vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- iCheck -->
-    <link href="../Content/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-	
-    <!-- bootstrap-progressbar -->
-    <link href="../Content/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
-    <!-- JQVMap -->
-    <link href="../Content/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
-    <!-- bootstrap-daterangepicker -->
-    <link href="../Content/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+  <?php include ('css.php'); ?>
+  
+</head>
 
-    <!-- Custom Theme Style -->
-    <link href="../Content/build/css/custom.min.css" rel="stylesheet">
-  </head>
+<body class="nav-md">
+  <div class="container body">
+    <div class="main_container">
+      <div class="col-md-3 left_col">
+        <div class="left_col scroll-view">
+          <div class="navbar nav_title" style="border: 0;">
+            <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
+          </div>
 
-  <body class="nav-md">
-    <div class="container body">
-      <div class="main_container">
-        <div class="col-md-3 left_col">
-          <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
+          <div class="clearfix"></div>
+
+          <!-- menu profile quick info -->
+          <div class="profile clearfix">
+            <div class="profile_pic">
+              <img src="../Content/Imagenes/img.jpg" alt="..." class="img-circle profile_img">
             </div>
-
-            <div class="clearfix"></div>
-
-            <!-- menu profile quick info -->
-            <div class="profile clearfix">
-              <div class="profile_pic">
-                <img src="../Content/Imagenes/img.jpg" alt="..." class="img-circle profile_img">
-              </div>
-              <div class="profile_info">
-                <span>Bienvenido,</span>
-                <h2>Usuario</h2>
-              </div>
+            <div class="profile_info">
+              <span>Bienvenido,</span>
+              <h2>Usuario</h2>
             </div>
-            <!-- /menu profile quick info -->
+          </div>
+          <!-- /menu profile quick info -->
 
-            <br />
+          <br />
 
-            <!-- sidebar menu -->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-              <div class="menu_section">
-                <h3>General</h3>
-                <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="index.html">Dashboard</a></li>
-                      
-                    </ul>
-                  </li>
-                  
+          <!-- sidebar menu -->
+          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+            <div class="menu_section">
+              <h3>MENÚ</h3>
+              <ul class="nav side-menu">
+
+                <?php include ('menu.html'); ?>
                 
-                </ul>
-              </div>
-              <div class="menu_section">
+              </ul>
+            </div>
+              <!-- <div class="menu_section">
                 <h3>Live On</h3>
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-bug"></i> Additional Pages <span class="fa fa-chevron-down"></span></a>
@@ -111,7 +91,7 @@
                   </li>                  
                   <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a></li>
                 </ul>
-              </div>
+              </div> -->
 
             </div>
             <!-- /sidebar menu -->
@@ -228,19 +208,19 @@
                 </li>
               </ul>
             </nav>
+
           </div>
         </div>
         <!-- /top navigation -->
         <!-- page content -->
-       
-       
-
+        <?php include ('Contenido/cont_index.html'); ?>
 
 
 
         <!-- /page content -->
         <!-- footer content -->
-        <footer>
+
+        <footer class="footer_fixed">
           <div class="pull-right">
             <strong>Copyright Sycsoft 2018</strong>
           </div>
@@ -249,47 +229,8 @@
         <!-- /footer content -->
       </div>
     </div>
-
-    <!-- jQuery -->
-    <script src="../Content/vendors/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="../Content/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- FastClick -->
-    <script src="../Content/vendors/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="../Content/vendors/nprogress/nprogress.js"></script>
-    <!-- Chart.js -->
-    <script src="../Content/vendors/Chart.js/dist/Chart.min.js"></script>
-    <!-- gauge.js -->
-    <script src="../Content/vendors/gauge.js/dist/gauge.min.js"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="../Content/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-    <!-- iCheck -->
-    <script src="../Content/vendors/iCheck/icheck.min.js"></script>
-    <!-- Skycons -->
-    <script src="../Content/vendors/skycons/skycons.js"></script>
-    <!-- Flot -->
-    <script src="../Content/vendors/Flot/jquery.flot.js"></script>
-    <script src="../Content/vendors/Flot/jquery.flot.pie.js"></script>
-    <script src="../Content/vendors/Flot/jquery.flot.time.js"></script>
-    <script src="../Content/vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="../Content/vendors/Flot/jquery.flot.resize.js"></script>
-    <!-- Flot plugins -->
-    <script src="../Content/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="../Content/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="../Content/vendors/flot.curvedlines/curvedLines.js"></script>
-    <!-- DateJS -->
-    <script src="../Content/vendors/DateJS/build/date.js"></script>
-    <!-- JQVMap -->
-    <script src="../Content/vendors/jqvmap/dist/jquery.vmap.js"></script>
-    <script src="../Content/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="../Content/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="../Content/vendors/moment/min/moment.min.js"></script>
-    <script src="../Content/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-
-    <!-- Custom Theme Scripts -->
-    <script src="../Content/build/js/custom.min.js"></script>
-	
+    <?php include ('js.php'); ?>
+    
+    
   </body>
-</html>
+  </html>
