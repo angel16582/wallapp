@@ -29,43 +29,48 @@
                     <br />
                     <div class="col-md-6">
                       <div class="form-group">
-
+                        <div class="col-md-12 col-xs-12" >
                         <label class="control-label" for="order_id">Codigo del Producto</label>
                         <input type="text" id="codigo"  value="" placeholder="Codigo del producto" class="form-control" onchange='buscar_articulo();' autocomplete="off">
-                        <input type="text" id="IdPro"  value="" class="form-control" style="display: none;">
-                        <br>
+                    
+                        <br></div>
+                       <!--  <label class="control-label" for="order_id">Codigo del Producto</label>
+                        <input type="text" id="codigo"  value="" placeholder="Codigo del producto" class="form-control" onchange='buscar_articulo();' autocomplete="off">
+                        <br> -->
+                        <div class="col-md-12 col-xs-12" >
                         <label class="control-label" for="order_id">Descripcion del producto</label>
-                        <input type="text" id="nombre"  value=""  placeholder="Producto" autocomplete="off" class="form-control nombre" readonly="">
-                        <br>
-                        <div class="col-md-3">
-                        <label class="control-label" for="status">Precio normal</label>
+                        <input type="text" id="nombre"  value=""  placeholder="Descripcion" autocomplete="off" class="form-control nombre" readonly="">
+                      
+                        <br></div>
+                        <div class="col-md-4 col-xs-4" >
+                        <label class="control-label" for="status">Precio</label>
                         <input type="text" id="precio" value="" placeholder="Precio" class="form-control" >
                         <br></div>
-                        <div class="col-md-3">
-                        <label class="control-label" for="status">Precio de oferta</label>
-                        <input type="number" id="precioOferta" value="" placeholder="Cantidad" class="form-control" required="required">
+                        <div class="col-md-4 col-xs-4">
+                        <label class="control-label" for="status">Oferta</label>
+                        <input type="number" id="precioOferta" value="" placeholder="Oferta" class="form-control" required="required">
                         <br></div>
-                        <div class="col-md-3">
+                        <!-- <div class="col-md-3 col-xs-5">
                         <label class="control-label" for="order_id">Gramaje</label>
                         <input type="text" id="gramaje" value="" placeholder="Cantidad" class="form-control" required="required">
                         
-                        <br></div>
-                        <div class="col-md-3"><label class="control-label" for="order_id">Cantidad</label>
-                        <input type="number" id="cantidad" value="" placeholder="Cantidad" class="form-control" required="required">
+                        <br></div> -->
+                        <div class="col-md-4 col-xs-4"><label class="control-label" for="order_id">Cantidad</label>
+                        <input type="number" id="cantidad" value="" placeholder="Cant." class="form-control" onchange='total();' required="required">
 
                         <br></div>
-                        <div class="col-md-4">
-                        <label class="control-label" for="order_id">Total por producto</label>
-                        <input type="number" id="cantidad" value="" placeholder="Cantidad" class="form-control" required="required">
+                        <div class="col-md-4 col-xs-4">
+                        <label class="control-label" for="order_id">Precio Final</label>
+                        <input type="number" id="totalPro" value="" placeholder="Precio" class="form-control" readonly="" required="required">
 
                         <br></div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-xs-4">
                         <label class="control-label" for="order_id">Subtotal</label>
-                        <input type="number" id="cantidad" value="" placeholder="Cantidad" class="form-control" required="required">
+                        <input type="number" id="subTotal" value="" placeholder="Sub." class="form-control" readonly="" required="required">
                         <br></div>
-                        <div class="col-md-4">
-                        <label class="control-label" for="order_id">Total de articulos</label>
-                        <input type="number" id="cantidad" value="" placeholder="Cantidad" class="form-control" required="required">
+                        <div class="col-md-4 col-xs-4">
+                        <label class="control-label" for="order_id">Articulos</label>
+                        <input type="number" id="totalArticulos" value="" placeholder="Art." class="form-control" readonly="" required="required">
                         <br></div>
 
                       </div>
@@ -102,9 +107,12 @@
     </div>
 
     <script>
+      
       function buscar_articulo(){
+        $(document).ready(function(){
      //$(document).ready(function(){
       var cod=$("#codigo").val();
+     
       
        $.ajax({
             url: "../Controlador/busca_producto.php",
@@ -116,39 +124,56 @@
              //if (true) {alert("producto no encotrado")}
               $("#nombre").val(data.nombre);
               $("#precio").val(data.precio);
-              $("#precioOferta").val(data.precio);
+              $("#cantidad").val(1);
+
+
+              if (data.oferta!=null) {
+                  $("#precioOferta").val(data.oferta);
+              }else{
+                $("#precioOferta").val(data.precio);
+              }
+              //$("#precioOferta").val(data.oferta);
               
               $("#gramaje").val(data.gramaje);
+              //$("#subTotal").val(cant*data.precio);
               if (data.codigo!="") {
                 $("#imagen").attr('src','../Content/Imagenes/'+data.codigo+'.jpg');
                }
                else{
                   $("#imagen").attr('src','../Content/Imagenes/img.jpg');
                }
-              //$("#descripcion").val(data.Descripcion);
-              // $("#IdPro").val(data.Id_Producto);
-              // if (data.Imagen!="") {
-              //  $("#imagen").attr('src','../Content/Productos/'+data.Imagen+'.jpg');
-              // }
-              // else{
-              //    $("#imagen").attr('src','../Content/Productos/nohay.jpg');
-              // }
-              // if (data.Categoria=="Frutas y Verduras" || data.Categoria=="A granel" ||data.Categoria=="Carnes") {
-
-              //     //alert("entre al if")
-                  
-              //    $("#ven").attr("disabled",false);
-              // }
-              // else{
-              //    agregar();
-              // }
-              
+          
+              total();
             
             }
-            
+         //total();
             
         });
-           
+       $("#cantidad").val("");
+       $("#totalPro").val("");
+       $("#subTotal").val("");
+       $("#totalArticulos").val("");
+           });
          // })
+         }
+
+
+         function total(){
+
+            var cant = $("#cantidad").val();
+            //var precio =$("#precio").val();
+            var oferta =$("#precioOferta").val();
+
+
+           
+              $("#subTotal").val(cant*oferta);
+              $("#totalPro").val(oferta);
+
+              $("#totalArticulos").val(cant);
+          
+         
+           
+
+
          }
     </script>
