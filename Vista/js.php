@@ -1,5 +1,5 @@
 <!-- jQuery -->
-    <script src="../Content/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- <script src="../Content/vendors/jquery/dist/jquery.min.js"></script> -->
     <!-- Bootstrap -->
     <script src="../Content/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- FastClick -->

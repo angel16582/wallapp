@@ -12,9 +12,17 @@
   
 
   <?php include ('css.php'); ?>
-
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="../Content/vendors/jquery/dist/jquery.min.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>  
 </head>
-
+<script>
+ $(document).ready(function() {
+    $( "#skills" ).autocomplete({
+      source: 'search.php'
+    });
+  });
+  </script>
 <body class="nav-md">
   <div class="container body">
     <div class="main_container">
