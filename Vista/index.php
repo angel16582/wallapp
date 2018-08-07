@@ -13,8 +13,19 @@
 
   <?php include ('css.php'); ?>
 
-</head>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>  
+  
 
+</head>
+ <script>
+  $(function() {
+    $( "#skills" ).autocomplete({
+      source: 'search.php'
+    });
+  });
+  </script>
 <body class="nav-md">
   <div class="container body">
     <div class="main_container">
@@ -214,44 +225,8 @@
         <!-- /top navigation -->
         <!-- page content -->
         <?php include ('Contenido/cont_index.html'); ?>
-        
 
-      <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                      <div class="modal-content">
 
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
-                          </button>
-                          <h4 class="modal-title" id="myModalLabel">Listado de productos</h4>
-                        </div>
-                        <div class="modal-body">
-                          
-                          <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="15" id="productos">
-                    <thead>
-                        <tr>
-
-                            
-                            <th >Producto</th>
-                            <th >Cantidad</th>
-                            <th >Precio</th>
-                            <th >Acción</th>
-                            
-
-                        </tr>
-                    </thead>
-                    <tbody id="tbody">
-                       
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="7">
-                                <ul class="pagination pull-right"></ul>
-                            </td>
-                        </tr>
-                    </tfoot>
-                </table>
-</div></div></div></div>
 
         <!-- /page content -->
         <!-- footer content -->
@@ -265,8 +240,8 @@
         <!-- /footer content -->
       </div>
     </div>
-    <?php include ('js.php'); ?>
     
+   
 
   </body>
   </html>
