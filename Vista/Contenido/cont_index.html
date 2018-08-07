@@ -22,7 +22,7 @@
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Buscador</h2>
-                    
+                    <button type="button" class="btn btn-dark pull-right" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-shopping-cart"></i> Carrito</button>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -38,7 +38,7 @@
                         <input type="text" id="codigo"  value="" placeholder="Codigo del producto" class="form-control" onchange='buscar_articulo();' autocomplete="off">
                         <br> -->
                         <div class="col-md-12 col-xs-12" >
-                        <label class="control-label" for="order_id">Descripcion del producto</label>
+                        <label class="control-label"  for="order_id">Descripcion del producto</label>
                         <input type="text" id="nombre"  value=""  placeholder="Descripcion" autocomplete="off" class="form-control nombre" readonly="">
                       
                         <br></div>
@@ -90,21 +90,14 @@
 
                   </div>
                 </div>
-
-
-
-
-
               </div>
             </div>
           </div>
         </div>
-
-
-
-
       </div>
     </div>
+
+
 
     <script>
       
@@ -170,10 +163,52 @@
               $("#totalPro").val(oferta);
 
               $("#totalArticulos").val(cant);
-          
-         
-           
-
 
          }
+    </script>
+    <script>
+      function agregar(){
+   $(document).ready(function(){
+           
+             var produc=$("#nombre").val();
+            var precio=$("#precio").val();
+            var cantidad=$("#cantidad").val();
+            if (cantidad=="") {
+                cantidad=1;
+            }
+            ///var monto=cantidad*precio;
+            $("#productos > tbody").append("<tr><td class='center'>"+produc+"</td><td class='center'>"+cantidad+"</td><td class='center'>"+precio+"</td><td class='center'><button class='btn btn-block btn-danger  eliminar' onclick='eliminar();'><i class='icon-trash bigger-120'></i> Quitar de la lista</button></td></tr>");
+            $("#nombre").val("");
+            $("#cantidad").val("");
+            $("#precio").val("");
+            
+             var data = [];
+          $("td.total").each(function(){
+         data.push(parseFloat($(this).text()));
+           });
+         var suma = data.reduce(function(a,b){ return a+b; },0);
+         $("#suma").html(suma);
+          $("#terminar").attr("disabled",false);
+      });
+           
+       7501031302796
+    
+         }
+         function eliminar(){
+
+      $(document).on('click', '.eliminar', function (event) {
+    event.preventDefault();
+    $(this).closest('tr').remove();
+    var data = [];
+     $("td.total").each(function(){
+         data.push(parseFloat($(this).text()));
+           });
+         var suma = data.reduce(function(a,b){ return a+b; },0);
+         $("#suma").html(suma);
+         if (suma==0) {
+          $("#terminar").attr("disabled",true);
+         }
+     });
+
+   }
     </script>
