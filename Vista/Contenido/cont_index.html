@@ -21,10 +21,13 @@
               <div class="col-md-12  col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Buscador</h2>
-                    <button type="button" class="btn btn-dark pull-right col-xs-3" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-shopping-cart"></i> Carrito</button>
-                      <button type="button" class="btn btn-dark pull-right col-xs-3" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-shopping-cart"></i> Carrito</button>
                     
+                    <div class="col-md-6 col-xs-6">
+                    <button type="button" class="btn btn-danger pull-left "  onclick="borrar();"><i class="fa fa-trash"></i> Limpiar campos</button>
+                    </div>
+                    <div class="col-md-6 col-xs-6">
+                    <button type="button" class="btn btn-dark pull-right " data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-shopping-cart"></i> Carrito</button>
+                    </div>
                     <div class="clearfix"></div>
                   </div>
 
@@ -41,7 +44,7 @@
                        <!--  <label class="control-label" for="order_id">Codigo del Producto</label>
                         <input type="text" id="codigo"  value="" placeholder="Codigo del producto" class="form-control" onchange='buscar_articulo();' autocomplete="off">
                         <br> -->
-                        <div class="col-md-10 col-xs-10" >
+                        <div class="col-md-12 col-xs-12" >
                         <label class="control-label"  for="order_id">Descripcion del producto</label>
                          <input type="text" id="skills" class="form-control nombre" placeholder="Nombre del Producto" onchange='buscar_articulo_des();'>
            <!--                     <div class="w3-container w3-white w3-margin w3-padding-large">
@@ -56,12 +59,7 @@
       </div> -->
                         <br></div>
                           
-                         <div class="col-md-2 col-xs-2" >
-
-                          <label class="control-label"  for="order_id">Borrar</label>
-                        <input type="submit" class="btn btn-danger" value="Borrar" onclick="borrar();">
-
-                        <br></div>
+                         
 
                         <div class="col-md-4 col-xs-4" >
                         <label class="control-label" for="status">Precio</label>
@@ -248,7 +246,7 @@
                 cantidad=1;
             }
             ///var monto=cantidad*precio;
-            $("#productos > tbody").append("<tr><td class='center'>"+produc+"</td><td class='center'>"+cantidad+"</td><td class='center'>"+precio+"</td><td class='center'><button class='btn btn-block btn-danger  eliminar' onclick='eliminar();'><i class='icon-trash bigger-120'></i> Quitar de la lista</button></td></tr>");
+            $("#productos > tbody").append("<tr><td class='center'>"+produc+"</td><td class='center'>"+cantidad+"</td><td class='center'>"+precio+"</td><td class='center'><button class='btn btn-block btn-danger  eliminar' onclick='eliminar();'><i class='fa fa-trash'></i> </button></td></tr>");
             $("#skills").val("");
             $("#cantidad").val("");
             $("#precio").val("");
