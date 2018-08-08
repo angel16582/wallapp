@@ -18,13 +18,16 @@
             </div> -->
             <div class="clearfix"></div>
             <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="col-md-12  col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Buscador</h2>
-                    <button type="button" class="btn btn-dark pull-right" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-shopping-cart"></i> Carrito</button>
+                    <button type="button" class="btn btn-dark pull-right col-xs-3" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-shopping-cart"></i> Carrito</button>
+                      <button type="button" class="btn btn-dark pull-right col-xs-3" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-shopping-cart"></i> Carrito</button>
+                    
                     <div class="clearfix"></div>
                   </div>
+
                   <div class="x_content">
                     <br />
                     <div class="col-md-6">
@@ -34,23 +37,32 @@
                         <input type="text" id="codigo"  value="" placeholder="Codigo del producto" class="form-control" onchange='buscar_articulo();' autocomplete="off">
                     
                         <br></div>
+                       
                        <!--  <label class="control-label" for="order_id">Codigo del Producto</label>
                         <input type="text" id="codigo"  value="" placeholder="Codigo del producto" class="form-control" onchange='buscar_articulo();' autocomplete="off">
                         <br> -->
-                        <div class="col-md-12 col-xs-12" >
+                        <div class="col-md-10 col-xs-10" >
                         <label class="control-label"  for="order_id">Descripcion del producto</label>
-                        <input type="text" id="nombre"  value=""  placeholder="Descripcion" autocomplete="off" class="form-control nombre" readonly="">
-                               <div class="w3-container w3-white w3-margin w3-padding-large">
+                         <input type="text" id="skills" class="form-control nombre" placeholder="Nombre del Producto" onchange='buscar_articulo_des();'>
+           <!--                     <div class="w3-container w3-white w3-margin w3-padding-large">
         
           <h2 style="text-align: center";>Autocomplete textbox using jQuery, PHP and MySQL by Lisenme</h2>
           <br>
           <div class="ui-widget" style="text-align: center";>
              <label for="skills">Skills: </label>
-           <input id="skills">
+           <input id="skills" class="form-control nombre">
           </div>
             
-      </div>
+      </div> -->
                         <br></div>
+                          
+                         <div class="col-md-2 col-xs-2" >
+
+                          <label class="control-label"  for="order_id">Borrar</label>
+                        <input type="submit" class="btn btn-danger" value="Borrar" onclick="borrar();">
+
+                        <br></div>
+
                         <div class="col-md-4 col-xs-4" >
                         <label class="control-label" for="status">Precio</label>
                         <input type="text" id="precio" value="" placeholder="Precio" class="form-control" >
@@ -89,7 +101,7 @@
 
                         <label class="control-label" for="status">Imagen del producto</label>
                         <div class="form-control" style="max-width: 250px;min-width: 250px; max-height: 210px;min-height: 210px">
-                          <center><img style="max-width: 150px;min-width: 150px; max-height: 200px;min-height: 200px" id="imagen"></center>
+                          <center><img src="../Content/Imagenes/nohay.jpg" style="max-width: 150px;min-width: 150px; max-height: 200px;min-height: 200px" id="imagen"></center>
                         </div>
                         <br>
                         <input type="submit"  value="Agregar" class="btn btn-dark" onclick="agregar()"  id="ven">
@@ -124,7 +136,57 @@
             data: {codigo:cod},
             success: function(data){
              //if (true) {alert("producto no encotrado")}
-              $("#nombre").val(data.nombre);
+              $("#skills").val(data.nombre);
+              $("#precio").val(data.precio);
+              $("#cantidad").val(1);
+
+
+              if (data.oferta!=null) {
+                  $("#precioOferta").val(data.oferta);
+              }else{
+                $("#precioOferta").val(data.precio);
+              }
+              //$("#precioOferta").val(data.oferta);
+              
+              $("#gramaje").val(data.gramaje);
+              //$("#subTotal").val(cant*data.precio);
+              if (data.codigo!="") {
+                $("#imagen").attr('src','../Content/Imagenes/'+data.codigo+'.jpg');
+               }
+               else{
+                  $("#imagen").attr('src','../Content/Imagenes/img.jpg');
+               }
+          
+              total();
+            
+            }
+         //total();
+            
+        });
+       $("#cantidad").val("");
+       $("#totalPro").val("");
+       $("#subTotal").val("");
+       $("#totalArticulos").val("");
+           });
+         // })
+         }
+
+
+               function buscar_articulo_des(){
+        $(document).ready(function(){
+     //$(document).ready(function(){
+      var des=$("#skills").val();
+     
+      
+       $.ajax({
+            url: "../Controlador/busca_producto_des.php",
+           // dataType: 'json',
+            type: "POST",
+            dataType: 'json',
+            data: {nombre:des},
+            success: function(data){
+             //if (true) {alert("producto no encotrado")}
+              $("#codigo").val(data.codigo);
               $("#precio").val(data.precio);
               $("#cantidad").val(1);
 
@@ -179,7 +241,7 @@
       function agregar(){
    $(document).ready(function(){
            
-             var produc=$("#nombre").val();
+             var produc=$("#skills").val();
             var precio=$("#precio").val();
             var cantidad=$("#cantidad").val();
             if (cantidad=="") {
@@ -187,7 +249,7 @@
             }
             ///var monto=cantidad*precio;
             $("#productos > tbody").append("<tr><td class='center'>"+produc+"</td><td class='center'>"+cantidad+"</td><td class='center'>"+precio+"</td><td class='center'><button class='btn btn-block btn-danger  eliminar' onclick='eliminar();'><i class='icon-trash bigger-120'></i> Quitar de la lista</button></td></tr>");
-            $("#nombre").val("");
+            $("#skills").val("");
             $("#cantidad").val("");
             $("#precio").val("");
             
@@ -200,8 +262,8 @@
           $("#terminar").attr("disabled",false);
       });
            
-       7501031302796
-    
+       
+    borrar();
          }
          function eliminar(){
 
@@ -219,5 +281,22 @@
          }
      });
 
+   }
+
+
+   function borrar(){
+
+      $("#codigo").val("");
+      $("#skills").val("");
+
+      $("#precio").val("");
+      $("#precioOferta").val("");
+
+
+       $("#cantidad").val("");
+       $("#totalPro").val("");
+       $("#subTotal").val("");
+       $("#totalArticulos").val("");
+       $("#imagen").attr('src','../Content/Imagenes/nohay.jpg');
    }
     </script>
