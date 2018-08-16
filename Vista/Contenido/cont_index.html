@@ -23,12 +23,12 @@
                   <div class="x_title">
                     <div class="col-md-12 col-xs-12">
                       <!-- <input type="submit"  value="Agregar" class="btn btn-dark" onclick="agregar()"  id="ven"> -->
-                    <button type="button" class="btn btn-default pull-right"><i class="fa fa-search"></i> Buscar</button>
+                    <button type="button" class="btn btn-default pull-right"><i class="fa fa-search fa-lg"></i> Buscar</button>
                     <!-- <input type="submit"  value="Agregar" class="btn btn-dark" onclick="agregar()"  id="ven"> -->
-                    <button type="submit" value="Agregar" class="btn btn-primary pull-right" onclick="agregar()"><i class="fa fa-plus-square-o" id="ven"></i> Agregar</button>
+                    <button type="submit" value="Agregar" class="btn btn-primary pull-right" onclick="agregar()"><i class="fa fa-plus-square-o fa-lg" id="ven"></i> Agregar</button>
 
-                     <button type="button" class="btn btn-dark pull-right" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-shopping-cart"></i> </button>
-                     <button type="button" class="btn btn-danger pull-right"  onclick="borrar();"><i class="fa fa-trash"></i></button>
+                     <button type="button" class="btn btn-dark pull-right" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-shopping-cart fa-lg"></i> </button>
+                     <button type="button" class="btn btn-danger pull-right "  onclick="borrar();"><i class="fa fa-trash fa-lg"></i></button>
                     </div>
                     <div class="clearfix"></div>
                   </div>
@@ -93,17 +93,20 @@
                         <label class="control-label" for="order_id">Articulos</label>
                         <input type="number" id="totalArticulos" value="" placeholder="Art." class="form-control" readonly="" required="required">
                         <br></div>
+                        <center>
+                        <label class="control-label" for="status">Imagen del producto</label>
+                        <br>
+                          <img src="../Content/Imagenes/nohay.jpg" style="max-width: 120px;min-width: 120px; max-height: 110px;min-height: 110px; " id="imagen">
+                        
+                        <br>
+                        </center>
 
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-
-                        <label class="control-label" for="status">Imagen del producto</label>
-                        <div class="form-control" style="max-width: 250px;min-width: 250px; max-height: 210px;min-height: 210px">
-                          <center><img src="../Content/Imagenes/nohay.jpg" style="max-width: 150px;min-width: 150px; max-height: 200px;min-height: 200px" id="imagen"></center>
-                        </div>
-                        <br>
+                        
+                        
                     <!--     <input type="submit"  value="Agregar" class="btn btn-dark" onclick="agregar()"  id="ven"> -->
                       </div>
                     </div>        
