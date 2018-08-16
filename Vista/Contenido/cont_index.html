@@ -21,11 +21,14 @@
               <div class="col-md-12  col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    
-                    <div class="col-md-6 col-xs-6">
-                    <button type="button" class="btn btn-danger pull-left "  onclick="borrar();"><i class="fa fa-trash"></i> Limpiar campos</button>
+                    <div class="col-md-2 col-xs-4">
+                    <button type="button" class="btn btn-default pull-left "><i class="fa fa-trash"></i> Buscar</button>
                     </div>
-                    <div class="col-md-6 col-xs-6">
+                    <div class="col-md-2 col-xs-4">
+                    <button type="button" class="btn btn-danger pull-right "  onclick="borrar();"><i class="fa fa-trash"></i> Borrar</button>
+                    </div>
+                    
+                    <div class="col-md-6 col-xs-4">
                     <button type="button" class="btn btn-dark pull-right " data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-shopping-cart"></i> Carrito</button>
                     </div>
                     <div class="clearfix"></div>
@@ -152,7 +155,7 @@
                 $("#imagen").attr('src','../Content/Imagenes/'+data.codigo+'.jpg');
                }
                else{
-                  $("#imagen").attr('src','../Content/Imagenes/img.jpg');
+                  $("#imagen").attr('src','../Content/Imagenes/nohay.jpg');
                }
           
               total();
@@ -202,7 +205,7 @@
                 $("#imagen").attr('src','../Content/Imagenes/'+data.codigo+'.jpg');
                }
                else{
-                  $("#imagen").attr('src','../Content/Imagenes/img.jpg');
+                  $("#imagen").attr('src','../Content/Imagenes/nohay.jpg');
                }
           
               total();
