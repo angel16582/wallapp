@@ -232,8 +232,11 @@
                           <button type="button" class="close" data-dismiss="modal"><li class="fa fa-remove"></li>
                           </button>
                           <h4 class="modal-title" id="myModalLabel">Listado de productos
-<div class="count pull-right"><span class="count_top"><b> Total </b></span>
-                            <i class="fa fa-dollar"></i>2500 <span style="margin-right: 10px;"></span></div>
+                            
+                          <div class="count pull-right"><span class="count_top"><b> Total </b></span>
+                            <i class="fa fa-dollar"></i><span style="margin-right: 4px;" id="suma"></span></div>
+                            <div class="count pull-right"><span class="count_top"><b> Cant art: </b></span>
+                            <span style="margin-right: 4px;" id="can"></span></div>
                           </h4>
 
                         </div>

@@ -250,20 +250,22 @@
             if (cantidad=="") {
                 cantidad=1;
             }
-            ///var monto=cantidad*precio;
-            $("#productos > tbody").append("<tr><td class='center'>"+produc+"</td><td class='center'>"+cantidad+"</td><td class='center'>"+precio+"</td><td class='center'><button class='btn btn-block btn-danger  eliminar' onclick='eliminar();'><i class='fa fa-trash'></i> </button></td></tr>");
+            var monto=cantidad*precio;
+            $("#productos > tbody").append("<tr><td class='center'>"+produc+"</td><td class='cant'>"+cantidad+"</td><td class='total'>"+monto+"</td><td class='center'><button class='btn btn-block btn-danger  eliminar' onclick='eliminar();'><i class='fa fa-trash'></i> </button></td></tr>");
             $("#skills").val("");
             $("#cantidad").val("");
             $("#precio").val("");
             
              var data = [];
+             
           $("td.total").each(function(){
          data.push(parseFloat($(this).text()));
            });
          var suma = data.reduce(function(a,b){ return a+b; },0);
          $("#suma").html(suma);
-          $("#terminar").attr("disabled",false);
+          
       });
+   
            
        
     borrar();
