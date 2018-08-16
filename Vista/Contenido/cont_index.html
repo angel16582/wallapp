@@ -257,13 +257,19 @@
             $("#precio").val("");
             
              var data = [];
-             
+             var data2=[];
+
           $("td.total").each(function(){
          data.push(parseFloat($(this).text()));
            });
          var suma = data.reduce(function(a,b){ return a+b; },0);
          $("#suma").html(suma);
-          
+         $("td.cant").each(function(){
+         data2.push(parseInt($(this).text()));
+           });
+         var suma2 = data2.reduce(function(a,b){ return a+b; },0);
+         $("#can").html(suma2);
+
       });
    
            
@@ -276,6 +282,7 @@
     event.preventDefault();
     $(this).closest('tr').remove();
     var data = [];
+    var data2=[];
      $("td.total").each(function(){
          data.push(parseFloat($(this).text()));
            });
@@ -284,6 +291,11 @@
          if (suma==0) {
           $("#terminar").attr("disabled",true);
          }
+         $("td.cant").each(function(){
+          data2.push(parseInt($(this).text()));
+           });
+         var suma2 = data2.reduce(function(a,b){ return a+b; },0);
+         $("#can").html(suma2);
      });
 
    }
