@@ -229,9 +229,13 @@
                       <div class="modal-content">
 
                         <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                          <button type="button" class="close" data-dismiss="modal"><li class="fa fa-remove"></li>
                           </button>
-                          <h4 class="modal-title" id="myModalLabel">Listado de productos</h4>
+                          <h4 class="modal-title" id="myModalLabel">Listado de productos
+<div class="count pull-right"><span class="count_top"><b> Total </b></span>
+                            <i class="fa fa-dollar"></i>2500 <span style="margin-right: 10px;"></span></div>
+                          </h4>
+
                         </div>
                         <div class="modal-body">
                           
