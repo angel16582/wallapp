@@ -14,7 +14,14 @@
   <?php include ('css.php'); ?>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="../Content/vendors/jquery/dist/jquery.min.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>  
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+  <script src="../Content/alertify/alertify.min.js"></script>
+
+<!-- include the style -->
+<link rel="stylesheet" href="../Content/alertify/css/alertify.min.css" />
+<!-- include a theme -->
+<link rel="stylesheet" href="../Content/alertify/css/themes/default.min.css" />  
 </head>
 <script>
  $(document).ready(function() {
