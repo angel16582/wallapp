@@ -23,14 +23,14 @@
                   <div class="x_title">
                     <div class="col-md-12 col-xs-12">
                       <!-- <input type="submit"  value="Agregar" class="btn btn-dark" onclick="agregar()"  id="ven"> -->
-                    
-                    <!-- <input type="submit"  value="Agregar" class="btn btn-dark" onclick="agregar()"  id="ven"> -->
-                    <button type="submit" value="Agregar" class="btn btn-primary pull-right" onclick="agregar()"><i class="fa fa-plus-square-o fa-lg" id="ven"></i> Agregar</button>
 
-                    <button type="button" class="btn btn-default pull-right"><i class="fa fa-search fa-lg" onclick="nada();"></i> </button>
+                      <!-- <input type="submit"  value="Agregar" class="btn btn-dark" onclick="agregar()"  id="ven"> -->
+                      <button type="submit" value="Agregar" class="btn btn-primary pull-right" onclick="agregar()"><i class="fa fa-plus-square-o fa-lg" id="ven"></i> Agregar</button>
 
-                     <button type="button" class="btn btn-dark pull-right" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-shopping-cart fa-lg"></i> </button>
-                     <button type="button" class="btn btn-danger pull-right "  onclick="borrar();"><i class="fa fa-trash fa-lg"></i></button>
+                      <button type="button" class="btn btn-default pull-right"><i class="fa fa-search fa-lg" onclick="nada();"></i> </button>
+
+                      <button type="button" class="btn btn-dark pull-right" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-shopping-cart fa-lg"></i> </button>
+                      <button type="button" class="btn btn-danger pull-right "  onclick="borrar();"><i class="fa fa-trash fa-lg"></i></button>
                     </div>
                     <div class="clearfix"></div>
                   </div>
@@ -39,18 +39,28 @@
                     <br />
                     <div class="col-md-12">
                       <div class="form-group">
+                        <div class="input-group">
+                          <input id="scanner_input" class="form-control" placeholder="Click en el boton para escanear" type="text" onchange='buscar_articulo();' /> 
+                          <span class="input-group-btn"> 
+                            <button class="btn btn-default" type="button" data-toggle="modal" data-target="#livestream_scanner">
+                              <i class="fa fa-barcode fa-lg"></i>
+                            </button> 
+                          </span>
+                        </div>
+
+
                         <div class="col-md-12 col-xs-12" >
-                        <label class="control-label" for="order_id">Codigo del Producto</label>
-                        <input type="text" id="codigo"  value="" placeholder="Codigo del producto" class="form-control" onchange='buscar_articulo();' autocomplete="off">
-                    
-                        <br></div>
-                       
+                          <label class="control-label" for="order_id">Codigo del Producto</label>
+                          <input type="text" id="codigo"  value="" placeholder="Codigo del producto" class="form-control" onchange='buscar_articulo();' autocomplete="off">
+
+                          <br></div>
+
                        <!--  <label class="control-label" for="order_id">Codigo del Producto</label>
                         <input type="text" id="codigo"  value="" placeholder="Codigo del producto" class="form-control" onchange='buscar_articulo();' autocomplete="off">
                         <br> -->
                         <div class="col-md-12 col-xs-12" >
-                        <label class="control-label"  for="order_id">Nombre del producto</label>
-                         <input type="text" id="skills" class="form-control nombre" placeholder="Nombre del Producto" onchange='buscar_articulo_des();'>
+                          <label class="control-label"  for="order_id">Nombre del producto</label>
+                          <input type="text" id="skills" class="form-control nombre" placeholder="Nombre del Producto" onchange='buscar_articulo_des();'>
            <!--                     <div class="w3-container w3-white w3-margin w3-padding-large">
         
           <h2 style="text-align: center";>Autocomplete textbox using jQuery, PHP and MySQL by Lisenme</h2>
@@ -60,51 +70,51 @@
            <input id="skills" class="form-control nombre">
           </div>
             
-      </div> -->
-                        <br></div>
-                          
-                         
+        </div> -->
+        <br></div>
 
-                        <div class="col-md-4 col-xs-4" >
-                        <label class="control-label" for="status">Precio</label>
-                        <input type="text" id="precio" value="" placeholder="Precio" class="form-control" >
-                        <br></div>
-                        <div class="col-md-4 col-xs-4">
-                        <label class="control-label" for="status">Oferta</label>
-                        <input type="number" id="precioOferta" value="" placeholder="Oferta" class="form-control" required="required">
-                        <br></div>
+
+
+        <div class="col-md-4 col-xs-4" >
+          <label class="control-label" for="status">Precio</label>
+          <input type="text" id="precio" value="" placeholder="Precio" class="form-control" >
+          <br></div>
+          <div class="col-md-4 col-xs-4">
+            <label class="control-label" for="status">Oferta</label>
+            <input type="number" id="precioOferta" value="" placeholder="Oferta" class="form-control" required="required">
+            <br></div>
                         <!-- <div class="col-md-3 col-xs-5">
                         <label class="control-label" for="order_id">Gramaje</label>
                         <input type="text" id="gramaje" value="" placeholder="Cantidad" class="form-control" required="required">
                         
                         <br></div> -->
                         <div class="col-md-4 col-xs-4"><label class="control-label" for="order_id">Cantidad</label>
-                        <input type="number" id="cantidad" value="" placeholder="Cant." class="form-control" onchange='total();' required="required">
+                          <input type="number" id="cantidad" value="" placeholder="Cant." class="form-control" onchange='total();' required="required">
 
-                        <br></div>
-                        <div class="col-md-4 col-xs-4">
-                        <label class="control-label" for="order_id">Precio Final</label>
-                        <input type="number" id="totalPro" value="" placeholder="Precio" class="form-control" readonly="" required="required">
+                          <br></div>
+                          <div class="col-md-4 col-xs-4">
+                            <label class="control-label" for="order_id">Precio Final</label>
+                            <input type="number" id="totalPro" value="" placeholder="Precio" class="form-control" readonly="" required="required">
 
-                        <br></div>
-                        <div class="col-md-4 col-xs-4">
-                        <label class="control-label" for="order_id">Subtotal</label>
-                        <input type="number" id="subTotal" value="" placeholder="Sub." class="form-control" readonly="" required="required">
-                        <br></div>
-                        <div class="col-md-4 col-xs-4">
-                        <label class="control-label" for="order_id">Articulos</label>
-                        <input type="number" id="totalArticulos" value="" placeholder="Art." class="form-control" readonly="" required="required">
-                        <br></div>
-                        <center>
-                        <label class="control-label" for="status">Imagen del producto</label>
-                        <br>
-                          <img src="../Content/Imagenes/nohay.jpg" style="max-width: 120px;min-width: 120px; max-height: 110px;min-height: 110px; " id="imagen">
-                        
-                        <br>
-                        </center>
+                            <br></div>
+                            <div class="col-md-4 col-xs-4">
+                              <label class="control-label" for="order_id">Subtotal</label>
+                              <input type="number" id="subTotal" value="" placeholder="Sub." class="form-control" readonly="" required="required">
+                              <br></div>
+                              <div class="col-md-4 col-xs-4">
+                                <label class="control-label" for="order_id">Articulos</label>
+                                <input type="number" id="totalArticulos" value="" placeholder="Art." class="form-control" readonly="" required="required">
+                                <br></div>
+                                <center>
+                                  <label class="control-label" for="status">Imagen del producto</label>
+                                  <br>
+                                  <img src="../Content/Imagenes/nohay.jpg" style="max-width: 120px;min-width: 120px; max-height: 110px;min-height: 110px; " id="imagen">
 
-                      </div>
-                    </div>
+                                  <br>
+                                </center>
+
+                              </div>
+                            </div>
                    <!-- <div class="col-md-6">
                       <div class="form-group">
                         
@@ -126,216 +136,216 @@
 
 
     <script>
-      
+
       function buscar_articulo(){
         $(document).ready(function(){
      //$(document).ready(function(){
       var cod=$("#codigo").val();
-     
-      
-       $.ajax({
-            url: "../Controlador/busca_producto.php",
-           // dataType: 'json',
-            type: "POST",
-            dataType: 'json',
-            data: {codigo:cod},
-            success: function(data){
-             //if (true) {alert("producto no encotrado")}
-              $("#skills").val(data.nombre);
-              $("#precio").val(data.precio);
-              $("#cantidad").val(1);
 
-              if (data.precio != cod) {alertify.success('producto agregado al carrito');}
-              if (data.oferta!=null) {
-                  $("#precioOferta").val(data.oferta);
-              }else{
-                $("#precioOferta").val(data.precio);
-              }
+      
+      $.ajax({
+        url: "../Controlador/busca_producto.php",
+           // dataType: 'json',
+           type: "POST",
+           dataType: 'json',
+           data: {codigo:cod},
+           success: function(data){
+             //if (true) {alert("producto no encotrado")}
+             $("#skills").val(data.nombre);
+             $("#precio").val(data.precio);
+             $("#cantidad").val(1);
+
+             if (data.precio != cod) {alertify.success('producto agregado al carrito');}
+             if (data.oferta!=null) {
+              $("#precioOferta").val(data.oferta);
+            }else{
+              $("#precioOferta").val(data.precio);
+            }
               //$("#precioOferta").val(data.oferta);
               
               $("#gramaje").val(data.gramaje);
               //$("#subTotal").val(cant*data.precio);
               if (data.codigo!="") {
                 $("#imagen").attr('src','../Content/Imagenes/'+data.codigo+'.jpg');
-               }
-               else{
-                  $("#imagen").attr('src','../Content/Imagenes/nohay.jpg');
-               }
-          
+              }
+              else{
+                $("#imagen").attr('src','../Content/Imagenes/nohay.jpg');
+              }
+
               total();
-            
+
             }
 
          //total();
-            
-        }).fail( function( jqXHR, textStatus, errorThrown ) {
-    alertify.error('no se ha encotrado el producto');
-});
+
+       }).fail( function( jqXHR, textStatus, errorThrown ) {
+        alertify.error('no se ha encotrado el producto');
+      });
        $("#cantidad").val("");
        $("#totalPro").val("");
        $("#subTotal").val("");
        $("#totalArticulos").val("");
-           });
+     });
          // })
-         }
+       }
 
 
-               function buscar_articulo_des(){
+       function buscar_articulo_des(){
         $(document).ready(function(){
      //$(document).ready(function(){
       var des=$("#skills").val();
-     
+
       
-       $.ajax({
-            url: "../Controlador/busca_producto_des.php",
+      $.ajax({
+        url: "../Controlador/busca_producto_des.php",
            // dataType: 'json',
-            type: "POST",
-            dataType: 'json',
-            data: {nombre:des},
-            success: function(data){
+           type: "POST",
+           dataType: 'json',
+           data: {nombre:des},
+           success: function(data){
              //if (true) {alert("producto no encotrado")}
-              $("#codigo").val(data.codigo);
-              $("#precio").val(data.precio);
-              $("#cantidad").val(1);
+             $("#codigo").val(data.codigo);
+             $("#precio").val(data.precio);
+             $("#cantidad").val(1);
 
 
-              if (data.oferta!=null) {
-                  $("#precioOferta").val(data.oferta);
-              }else{
-                $("#precioOferta").val(data.precio);
-              }
+             if (data.oferta!=null) {
+              $("#precioOferta").val(data.oferta);
+            }else{
+              $("#precioOferta").val(data.precio);
+            }
               //$("#precioOferta").val(data.oferta);
               
               $("#gramaje").val(data.gramaje);
               //$("#subTotal").val(cant*data.precio);
               if (data.codigo!="") {
                 $("#imagen").attr('src','../Content/Imagenes/'+data.codigo+'.jpg');
-               }
-               else{
-                  $("#imagen").attr('src','../Content/Imagenes/nohay.jpg');
-               }
-          
+              }
+              else{
+                $("#imagen").attr('src','../Content/Imagenes/nohay.jpg');
+              }
+
               total();
-            
+
             }
          //total();
-            
-        });
-       $("#cantidad").val("");
-       $("#totalPro").val("");
-       $("#subTotal").val("");
-       $("#totalArticulos").val("");
-           });
+
+       });
+      $("#cantidad").val("");
+      $("#totalPro").val("");
+      $("#subTotal").val("");
+      $("#totalArticulos").val("");
+    });
          // })
-         }
+       }
 
 
-         function total(){
+       function total(){
 
-            var cant = $("#cantidad").val();
+        var cant = $("#cantidad").val();
             //var precio =$("#precio").val();
             var oferta =$("#precioOferta").val();
 
 
-           
-              $("#subTotal").val(cant*oferta);
-              $("#totalPro").val(oferta);
 
-              $("#totalArticulos").val(cant);
+            $("#subTotal").val(cant*oferta);
+            $("#totalPro").val(oferta);
 
-         }
-    </script>
-    <script>
-      function agregar(){
-   $(document).ready(function(){
-    
-          
+            $("#totalArticulos").val(cant);
+
+          }
+        </script>
+        <script>
+          function agregar(){
+           $(document).ready(function(){
+
+
              var produc=$("#skills").val();
-            var precio=$("#precio").val();
-            var cantidad=$("#cantidad").val();
-if (produc=="" || precio=="" ) {
-alertify.alert('Alerta', 'No se ha relizado ninguna busqueda');
-    }else{
+             var precio=$("#precio").val();
+             var cantidad=$("#cantidad").val();
+             if (produc=="" || precio=="" ) {
+              alertify.alert('Alerta', 'No se ha relizado ninguna busqueda');
+            }else{
 
-            if (cantidad=="") {
+              if (cantidad=="") {
                 cantidad=1;
-            }
-            var monto=cantidad*precio;
-            $("#productos > tbody").append("<tr><td class='center'>"+produc+"</td><td class='cant'>"+cantidad+"</td><td class='total'>"+monto+"</td><td class='center'><button class='btn btn-block btn-danger  eliminar' onclick='eliminar();'><i class='fa fa-trash'></i> </button></td></tr>");
-            $("#skills").val("");
-            $("#cantidad").val("");
-            $("#precio").val("");
-            
-             var data = [];
-             var data2=[];
+              }
+              var monto=cantidad*precio;
+              $("#productos > tbody").append("<tr><td class='center'>"+produc+"</td><td class='cant'>"+cantidad+"</td><td class='total'>"+monto+"</td><td class='center'><button class='btn btn-block btn-danger  eliminar' onclick='eliminar();'><i class='fa fa-trash'></i> </button></td></tr>");
+              $("#skills").val("");
+              $("#cantidad").val("");
+              $("#precio").val("");
 
-          $("td.total").each(function(){
-         data.push(parseFloat($(this).text()));
-           });
-         var suma = data.reduce(function(a,b){ return a+b; },0);
-         $("#suma").html(suma);
-         $("td.cant").each(function(){
-         data2.push(parseInt($(this).text()));
-           });
-         var suma2 = data2.reduce(function(a,b){ return a+b; },0);
-         $("#can").html(suma2);
-         alertify.success('producto agregado al carrito');
-}
-      });
-   
+              var data = [];
+              var data2=[];
+
+              $("td.total").each(function(){
+               data.push(parseFloat($(this).text()));
+             });
+              var suma = data.reduce(function(a,b){ return a+b; },0);
+              $("#suma").html(suma);
+              $("td.cant").each(function(){
+               data2.push(parseInt($(this).text()));
+             });
+              var suma2 = data2.reduce(function(a,b){ return a+b; },0);
+              $("#can").html(suma2);
+              alertify.success('producto agregado al carrito');
+            }
+          });
+
            
-       
-    borrar();
+
+           borrar();
          }
          function eliminar(){
 
-      $(document).on('click', '.eliminar', function (event) {
-    event.preventDefault();
-    $(this).closest('tr').remove();
-    var data = [];
-    var data2=[];
-     $("td.total").each(function(){
-         data.push(parseFloat($(this).text()));
+          $(document).on('click', '.eliminar', function (event) {
+            event.preventDefault();
+            $(this).closest('tr').remove();
+            var data = [];
+            var data2=[];
+            $("td.total").each(function(){
+             data.push(parseFloat($(this).text()));
            });
-         var suma = data.reduce(function(a,b){ return a+b; },0);
-         $("#suma").html(suma);
-         if (suma==0) {
-          $("#terminar").attr("disabled",true);
-         }
-         $("td.cant").each(function(){
-          data2.push(parseInt($(this).text()));
-           });
-         var suma2 = data2.reduce(function(a,b){ return a+b; },0);
-         $("#can").html(suma2);
-     });
-
-   }
-
-
-   function borrar(){
-
-      $("#codigo").val("");
-      $("#skills").val("");
-
-      $("#precio").val("");
-      $("#precioOferta").val("");
-
-
-       $("#cantidad").val("");
-       $("#totalPro").val("");
-       $("#subTotal").val("");
-       $("#totalArticulos").val("");
-       $("#imagen").attr('src','../Content/Imagenes/nohay.jpg');
-   }
-
-   function nada(){
-            var cod=$("#codigo").val();
-            var nom=$("#skills").val();
-
-            if (cod=="" || nom=="") {
-              alertify.alert('Alerta', 'Favor de llenar el campo codigo del producto o nombre del producto');
+            var suma = data.reduce(function(a,b){ return a+b; },0);
+            $("#suma").html(suma);
+            if (suma==0) {
+              $("#terminar").attr("disabled",true);
             }
+            $("td.cant").each(function(){
+              data2.push(parseInt($(this).text()));
+            });
+            var suma2 = data2.reduce(function(a,b){ return a+b; },0);
+            $("#can").html(suma2);
+          });
 
-    
-   }
-    </script>
+        }
+
+
+        function borrar(){
+
+          $("#codigo").val("");
+          $("#skills").val("");
+
+          $("#precio").val("");
+          $("#precioOferta").val("");
+
+
+          $("#cantidad").val("");
+          $("#totalPro").val("");
+          $("#subTotal").val("");
+          $("#totalArticulos").val("");
+          $("#imagen").attr('src','../Content/Imagenes/nohay.jpg');
+        }
+
+        function nada(){
+          var cod=$("#codigo").val();
+          var nom=$("#skills").val();
+
+          if (cod=="" || nom=="") {
+            alertify.alert('Alerta', 'Favor de llenar el campo codigo del producto o nombre del producto');
+          }
+
+
+        }
+      </script>
