@@ -136,6 +136,7 @@ $(function() {
       Quagga.stop();  
       setTimeout(function(){ $('#livestream_scanner').modal('hide'); }, 1000);      
     }
+    buscar_articulo();
   });
     
   // Stop quagga in any case, when the modal is closed
