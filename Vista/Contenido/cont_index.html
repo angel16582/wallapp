@@ -40,7 +40,9 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <div class="col-xs-12">
+                          <label class="control-label"  for="order_id">Codigo del producto</label>
                         <div class="input-group">
+                          
                           <input id="scanner_input" class="form-control" placeholder="Click en el boton para escanear" type="text" onchange='buscar_articulo();' /> 
                           <span class="input-group-btn"> 
                             <button class="btn btn-default" type="button" data-toggle="modal" data-target="#livestream_scanner">
@@ -78,11 +80,11 @@
 
         <div class="col-md-4 col-xs-4" >
           <label class="control-label" for="status">Precio</label>
-          <input type="text" id="precio" value="" placeholder="Precio" class="form-control" >
+          <input type="text" id="precio" value="" placeholder="Precio" class="form-control"  readonly="">
           <br></div>
           <div class="col-md-4 col-xs-4">
             <label class="control-label" for="status">Oferta</label>
-            <input type="number" id="precioOferta" value="" placeholder="Oferta" class="form-control" required="required">
+            <input type="number" id="precioOferta" value="" placeholder="Oferta" class="form-control" required="required" readonly="">
             <br></div>
                         <!-- <div class="col-md-3 col-xs-5">
                         <label class="control-label" for="order_id">Gramaje</label>
@@ -266,9 +268,12 @@
           function agregar(){
            $(document).ready(function(){
 
-
+             var monto=0;
              var produc=$("#skills").val();
              var precio=$("#precio").val();
+             var precioOfer=$("#precioOferta").val();
+             var prec = parseFloat(precio);
+             var ofer= parseFloat(precioOfer);
              var cantidad=$("#cantidad").val();
              if (produc=="" || precio=="" ) {
               alertify.alert('Alerta', 'No se ha relizado ninguna busqueda');
@@ -277,7 +282,17 @@
               if (cantidad=="") {
                 cantidad=1;
               }
-              var monto=cantidad*precio;
+              if (precioOfer==null || precioOfer==0) {
+                 monto= cantidad*precio;
+              }
+              else if(ofer<prec){
+                 monto=cantidad*ofer
+              }
+              else{
+                monto=cantidad*prec;
+              }
+              
+              
               $("#productos > tbody").append("<tr><td class='center'>"+produc+"</td><td class='cant'>"+cantidad+"</td><td class='total'>"+monto+"</td><td class='center'><button class='btn btn-block btn-danger  eliminar' onclick='eliminar();'><i class='fa fa-trash'></i> </button></td></tr>");
               $("#skills").val("");
               $("#cantidad").val("");
