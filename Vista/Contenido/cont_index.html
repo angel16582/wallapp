@@ -27,7 +27,7 @@
                     <!-- <input type="submit"  value="Agregar" class="btn btn-dark" onclick="agregar()"  id="ven"> -->
                     <button type="submit" value="Agregar" class="btn btn-primary pull-right" onclick="agregar()"><i class="fa fa-plus-square-o fa-lg" id="ven"></i> Agregar</button>
 
-                    <button type="button" class="btn btn-default pull-right"><i class="fa fa-search fa-lg" onclick="nada();"></i> </button>
+                    <button type="button" class="btn btn-default pull-right"><i class="fa fa-search fa-lg" onclick="buscar_articulo();"></i> </button>
 
                      <button type="button" class="btn btn-dark pull-right" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-shopping-cart fa-lg"></i> </button>
                      <button type="button" class="btn btn-danger pull-right "  onclick="borrar();"><i class="fa fa-trash fa-lg"></i></button>
@@ -41,7 +41,7 @@
                       <div class="form-group">
                         <div class="col-md-12 col-xs-12" >
                         <label class="control-label" for="order_id">Codigo del Producto</label>
-                        <input type="text" id="codigo"  value="" placeholder="Codigo del producto" class="form-control" onchange='buscar_articulo();' autocomplete="off">
+                        <input type="text" id="codigo"  value="" placeholder="Codigo del producto" class="form-control"  autocomplete="off">
                     
                         <br></div>
                        
@@ -130,6 +130,8 @@
       function buscar_articulo(){
         $(document).ready(function(){
      //$(document).ready(function(){
+      //borrar();
+      nada();
       var cod=$("#codigo").val();
      
       
@@ -145,7 +147,7 @@
               $("#precio").val(data.precio);
               $("#cantidad").val(1);
 
-              if (data.precio != cod) {alertify.success('producto agregado al carrito');}
+             
               if (data.oferta!=null) {
                   $("#precioOferta").val(data.oferta);
               }else{
@@ -332,9 +334,14 @@ alertify.alert('Alerta', 'No se ha relizado ninguna busqueda');
             var cod=$("#codigo").val();
             var nom=$("#skills").val();
 
-            if (cod=="" || nom=="") {
+            if (cod=="") {
               alertify.alert('Alerta', 'Favor de llenar el campo codigo del producto o nombre del producto');
             }
+
+            // var a = 2.4;
+            // var b = 6.5;
+
+            // if (a<b) { alertify.alert('Alerta', 'Favor de llenar el campo codigo del prcto');}
 
     
    }
