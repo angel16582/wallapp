@@ -27,7 +27,7 @@
                       <!-- <input type="submit"  value="Agregar" class="btn btn-dark" onclick="agregar()"  id="ven"> -->
                       <button type="submit" value="Agregar" class="btn btn-primary pull-right" onclick="agregar()"><i class="fa fa-plus-square-o fa-lg" id="ven"></i> Agregar</button>
 
-                      <button type="button" class="btn btn-default pull-right"><i class="fa fa-search fa-lg" onclick="nada();"></i> </button>
+                      <button type="button" class="btn btn-default pull-right" onclick="nada();"><i class="fa fa-search fa-lg"></i> </button>
 
                       <button type="button" class="btn btn-dark pull-right" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-shopping-cart fa-lg"></i> </button>
                       <button type="button" class="btn btn-danger pull-right "  onclick="borrar();"><i class="fa fa-trash fa-lg"></i></button>
@@ -39,6 +39,7 @@
                     <br />
                     <div class="col-md-12">
                       <div class="form-group">
+                        <div class="col-xs-12">
                         <div class="input-group">
                           <input id="scanner_input" class="form-control" placeholder="Click en el boton para escanear" type="text" onchange='buscar_articulo();' /> 
                           <span class="input-group-btn"> 
@@ -47,13 +48,13 @@
                             </button> 
                           </span>
                         </div>
+                        </div>
 
-
-                        <div class="col-md-12 col-xs-12" >
+                       <!--  <div class="col-md-12 col-xs-12" >
                           <label class="control-label" for="order_id">Codigo del Producto</label>
                           <input type="text" id="codigo"  value="" placeholder="Codigo del producto" class="form-control" onchange='buscar_articulo();' autocomplete="off">
 
-                          <br></div>
+                          <br></div> -->
 
                        <!--  <label class="control-label" for="order_id">Codigo del Producto</label>
                         <input type="text" id="codigo"  value="" placeholder="Codigo del producto" class="form-control" onchange='buscar_articulo();' autocomplete="off">
@@ -155,7 +156,7 @@
              $("#precio").val(data.precio);
              $("#cantidad").val(1);
 
-             if (data.precio != cod) {alertify.success('producto agregado al carrito');}
+             alertify.success('Producto encotrado');
              if (data.oferta!=null) {
               $("#precioOferta").val(data.oferta);
             }else{
@@ -179,7 +180,9 @@
          //total();
 
        }).fail( function( jqXHR, textStatus, errorThrown ) {
-        alertify.error('no se ha encotrado el producto');
+        borrar();
+        //$("#scanner_input").val("");
+        alertify.error('No se ha encotrado el producto');
       });
        $("#cantidad").val("");
        $("#totalPro").val("");
@@ -208,7 +211,7 @@
              $("#precio").val(data.precio);
              $("#cantidad").val(1);
 
-
+             alertify.success('Producto encotrado');
              if (data.oferta!=null) {
               $("#precioOferta").val(data.oferta);
             }else{
@@ -230,7 +233,11 @@
             }
          //total();
 
-       });
+       }).fail( function( jqXHR, textStatus, errorThrown ) {
+        //borrar();
+        //$("#scanner_input").val("");
+        alertify.error('No se ha encotrado el producto');
+         });
       $("#cantidad").val("");
       $("#totalPro").val("");
       $("#subTotal").val("");
@@ -323,7 +330,7 @@
 
 
         function borrar(){
-
+ $("#scanner_input").val("");
           $("#codigo").val("");
           $("#skills").val("");
 
@@ -339,10 +346,10 @@
         }
 
         function nada(){
-          var cod=$("#codigo").val();
+          var cod=$("#scanner_input").val();
           var nom=$("#skills").val();
 
-          if (cod=="" || nom=="") {
+          if ((cod=="" && nom=="")) {
             alertify.alert('Alerta', 'Favor de llenar el campo codigo del producto o nombre del producto');
           }
 
