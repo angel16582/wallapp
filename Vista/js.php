@@ -39,9 +39,12 @@
     <!-- Custom Theme Scripts -->
     <script src="../Content/build/js/custom.min.js"></script>
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.js"></script>
+   <!--  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.js"></script> -->
 
+
+<script src="../Content/quaga/quagga.js"></script>
+<script src="../Content/quaga/quagga.min.js"></script>
 
 
 
