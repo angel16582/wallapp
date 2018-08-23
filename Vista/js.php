@@ -73,7 +73,16 @@ $(function() {
       numOfWorkers: (navigator.hardwareConcurrency ? navigator.hardwareConcurrency : 4),
       decoder: {
         "readers":[
-          {"format":"ean_reader","config":{}}
+         "upc_reader",
+          "code_128_reader",
+                        "ean_reader",
+                        "ean_8_reader",
+                        "code_39_reader",
+                        "code_39_vin_reader",
+                        "codabar_reader",
+                       
+                        "upc_e_reader",
+                        "i2of5_reader"
         ]
       },
       locate: true
